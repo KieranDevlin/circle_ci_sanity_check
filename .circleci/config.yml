@@ -23,6 +23,7 @@ jobs:
           command: python test_sum.py
       - store_test_results:
           path: tpm/test-results
+          destination: test-results
       - store_artifacts:
           path: tmp/artifacts
-          destination: tr1
+          destination: artifacts
