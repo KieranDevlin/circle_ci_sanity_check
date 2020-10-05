@@ -9,14 +9,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Python
-          command: sudo apt install python3-pip
-      - run:
-          name: Install pipenv
-          command: sudo pip3 install pipenv
-      - run:
-          name: Install packages
-          command: pipenv install
-      - run:
           name: Test Sum
           command: python test_sum.py
