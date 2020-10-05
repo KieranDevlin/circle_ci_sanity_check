@@ -1,13 +1,11 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
 jobs:
-  test-results:
-    - node/test
+  build:
+    docker:
+      - image: 'circleci/node:latest'
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
     steps:
-      - store_test_results:
-        path: test-results.xml
-workflows:
-  node-tests:
-    jobs:
-      - test-results
+      - checkout
+      - run: echo 'hello world'
