@@ -1,17 +1,13 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.1.0
+  node: circleci/node@3.0.0
 jobs:
-  build:
-    executor:
-      name: node/default
-      tag: '10.4'
+  test-results:
+    - node/test
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      - run: npm run test
       - store_test_results:
-        path: test-results
-    
+        path: test-results.xml
+workflows:
+  node-tests:
+    jobs:
+      - test-results
