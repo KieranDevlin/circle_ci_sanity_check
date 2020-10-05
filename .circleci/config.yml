@@ -6,6 +6,6 @@ workflows:
     jobs:
       - node/test
         steps:
-          - store_test_results:
-            path: test-results.xml
+            - store_test_results:
+              path: test-results.xml
         
