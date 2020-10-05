@@ -5,12 +5,12 @@ jobs:
       - image: circleci/python:3.6.2-stretch-browsers
         auth:
           username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+          password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
     steps:
       - checkout
-      - run: 
+      - run:
         name: Install pipenv, packages, then test
         command: |
-        sudo pip3 install pipenv
-        pipenv install
-        python test_sum.py
+          sudo pip3 install pipenv
+          pipenv install
+          python test_sum.py
