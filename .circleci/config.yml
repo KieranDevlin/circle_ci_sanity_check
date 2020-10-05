@@ -1,21 +1,14 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
+version: 2
 jobs:
-  build-and-test:
-    executor: python/default
+  build:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
+      - run: pipenv install
       - run:
-          command: ./manage.py test
-          name: Test
-
-workflows:
-  main:
-    jobs:
-      - build-and-test
+        name: Test
+        command: python test_sum.py
