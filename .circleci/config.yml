@@ -11,8 +11,8 @@ jobs:
       - run:
           name: Build test-results dir
           command: |
-            mkdir /tmp/test-results
-            mkdir /tmp/artifacts
+            mkdir tmp/test-results
+            mkdir tmp/artifacts
       - run:
           name: Install pipenv and dependancies
           command: |
@@ -22,7 +22,7 @@ jobs:
           name: Test Sum
           command: python test_sum.py
       - store_test_results:
-          path: tpm/test-results
+          path: tmp/test-results
           destination: test-results
       - store_artifacts:
           path: tmp/artifacts
