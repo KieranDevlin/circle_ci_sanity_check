@@ -2,14 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.2-stretch-browsers
+      - image: 'circleci/python:latest'
         auth:
           username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD # context / project UI env-var reference
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
           name: Test Sum
           command: python test_sum.py
       - store_test_results:
-          path: test-results.xml
+          path: test-results
