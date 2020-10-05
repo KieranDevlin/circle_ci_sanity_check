@@ -9,11 +9,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build test-results dir
-          command: |
-            mkdir tmp/test-results
-            mkdir tmp/artifacts
-      - run:
           name: Install pipenv and dependancies
           command: |
             sudo pip install pipenv
@@ -22,8 +17,6 @@ jobs:
           name: Test Sum
           command: python test_sum.py
       - store_test_results:
-          path: tmp/test-results
-          destination: test-results
+          path: test-results
       - store_artifacts:
-          path: tmp/artifacts
-          destination: artifacts
+          path: artifacts
