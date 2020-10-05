@@ -12,4 +12,4 @@ jobs:
           name: Test Sum
           command: python test_sum.py
       - store_test_results:
-          path: test-results
+          path: tmp/test-results
