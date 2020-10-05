@@ -9,6 +9,10 @@ jobs:
     steps:
       - checkout
       - run:
+        command: |
+          sudo pip install pipenv
+          pipenv install
+      - run:
           name: Test Sum
           command: python test_sum.py
       - store_test_results:
