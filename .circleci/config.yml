@@ -11,9 +11,8 @@ jobs:
       - run:
           name: Test Sum
           command: python test_sum.py
-        - store_test_results:
-            path: test-results
-        - store_artifacts:
-            path: test-results
-            destination: tr1
-  
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: tr1
