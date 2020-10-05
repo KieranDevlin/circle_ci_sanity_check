@@ -9,6 +9,4 @@ jobs:
     steps:
       - checkout
       - run: pipenv install
-      - run:
-        name: Test
-        command: python test_sum.py
+      - run: python test_sum.py
