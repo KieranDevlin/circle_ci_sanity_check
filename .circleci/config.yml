@@ -8,4 +8,13 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
-      - run: echo 'hello world'
+      - run:
+        name: update-npm
+        command: "sudo npm install -g npm@latest"
+      - run:
+        name: jest-test
+        command: npm test
+      - store_test_results:
+        path: test-results.xml
+
+      
